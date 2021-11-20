@@ -1,0 +1,111 @@
+##################################################
+#                      _       _                 #
+#   ___ __ _ _ __   __| |_   _| |__   __ _ _ __  #
+#  / __/ _` | '_ \ / _` | | | | '_ \ / _` | '__| #
+# | (_| (_| | | | | (_| | |_| | |_) | (_| | |    #
+#  \___\__,_|_| |_|\__,_|\__, |_.__/ \__,_|_|    #
+#                        |___/                   #
+##################################################
+
+#
+# Author : rootkill <rootkill.dedsec@gmail.com>
+# Github : rootkill-g
+#
+
+#
+# date and time
+#
+
+date=$(date "+%d-%b-%Y, %A")
+time=$(date "+%l:%M:%S %p")
+
+hr=$(date +%l)
+
+if [ $hr -eq 0 ] || [ $hr -eq 12 ] ; then
+  clock=🕛
+elif [ $hr -eq 1 ] ; then
+  clock=🕐
+elif [ $hr -eq 2 ] ; then
+  clock=🕑
+elif [ $hr -eq 3 ] ; then
+  clock=🕒
+elif [ $hr -eq 4 ] ; then
+  clock=🕓
+elif [ $hr -eq 5 ] ; then
+  clock=🕔
+elif [ $hr -eq 6 ] ; then
+  clock=🕕
+elif [ $hr -eq 7 ] ; then
+  clock=🕖
+elif [ $hr -eq 8 ] ; then
+  clock=🕗
+elif [ $hr -eq 9 ] ; then
+  clock=🕘
+elif [ "$hr" -eq 10 ] ; then
+  clock=🕙
+elif [ $hr -eq 11 ] ; then
+  clock=🕚
+fi
+
+#
+# battery percentage
+#
+
+btemp=$(upower --show-info $(upower --enumerate |\
+grep 'BAT') |\
+egrep "state|percentage" |\
+awk '{print $2}')
+
+status=$(echo $btemp | awk -F" " '{ print $1 }')
+percentage=$(echo $btemp | awk -F" " '{ print $2 }')
+
+if [ "$status" == "charging" ] ; then
+  battery=⚡;
+elif [ "$status" == "discharging" ] ; then
+  battery=🔻;
+elif [ "$status" == "pending-charge" ] || [ "$status" == "fully-charged" ] ; then
+  battery=🔋;
+fi
+
+#
+# volume level
+#
+
+level=$(amixer sget Master | awk -F"[][]" '/Left: Play.+/ { print $0 }' | awk -F"[][]" '{ print $2 }')
+temp=$(amixer sget Master | awk -F"[][]" '/Left: Play.+/ { print $0 }' | awk -F" " '{ print $6 }')
+if [ "$temp" != "[on]" ] || [ "$level" == "0%" ] ; then
+  volume=🔇
+elif [ ${level::-1} -le 35 ] ; then
+  volume=🔉;
+else
+  volume=🔊;
+fi
+
+#
+# Network
+#
+
+c_name=$(nmcli | rg connected | awk -F" " '/to/ { print $4 }')
+c_state=$(echo -e $(nmcli | rg connected | awk -F" " '/to/ { print $2 }') | awk -F" " '{ print $1 }')
+if [ "$c_state" != "connected" ] ; then
+  c_state=🚫
+else
+  c_state=🔗
+fi
+
+#
+# Brightness
+#
+
+brightness=$(($(brightnessctl g) * 100 / 937 ))
+if [ $(($brightness)) -ge 50 ] ; then
+  backlit=🔆
+else
+  backlit=🔅
+fi
+
+#
+# Candybar
+#
+
+echo -e $c_state $c_name "|" $backlit $brightness "|" $volume $level "|" $battery $percentage "|" 📅 $date "|" $clock $time

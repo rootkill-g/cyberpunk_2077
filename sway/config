@@ -1,0 +1,439 @@
+#############################
+#  _____      ____ _ _   _  #
+# / __\ \ /\ / / _` | | | | #
+# \__ \\ V  V / (_| | |_| | #
+# |___/ \_/\_/ \__,_|\__, | #
+#                    |___/  #
+#############################
+
+#
+# Author : rootkill <rootkill.dedsec@gmail.com>
+# Github : rootkill-g
+#
+
+#
+# Variables
+#
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Your preferred terminal emulator
+set $term alacritty
+
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu wofi --allow-images --hide-scroll
+
+# Defined Variables
+set $fm lf
+set $wb firefox
+set $slock ~/.config/sway/slock
+set $sidle ~/.config/sway/sidle
+#
+# Output configuration
+#
+
+# Desktop wallpaper
+output * bg $HOME/pictures/cyberpunk_2077/cyborg.jpg fill
+
+# Font
+font pango:Noto Sans Medium 12
+
+# Display output configuration
+output "eDP-1 'Unknown 0x38ED 0x00000000'" position 0 0 resolution 1920x1080
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+# Run Pure Wayland
+# xwayland disable
+
+#
+# Idle configuration
+#
+
+exec $sidle
+
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+#
+# Input configuration
+#
+
+# Touchpad configuration
+input type:touchpad {
+#    dwt enabled
+    tap enabled
+#    natural_scroll enabled
+#    middle_emulation enabled
+}
+
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+#
+# Key bindings
+#
+
+#
+# Basics:
+#
+
+    # Mako
+    bindsym $mod+y exec makoctl dismiss
+    bindsym $mod+Shift+y exec makoctl dismiss -a
+
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+q kill
+
+    # Start your launcher
+    bindsym $mod+space exec $menu
+
+    # Start file manager
+    bindsym $mod+f exec $term -e $fm
+
+    # Start web browser
+    bindsym $mod+i exec $wb
+
+    # Start web browser incognito mode
+    bindsym Shift+Ctrl+p exec firefox --private-window
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+r reload ; exec notify-send -t 7000 -i $HOME/.config/mako/logo/anime.png "華やかさに対して揺れる" "揺れリロード！, また ねええ   $USER-さん !!!" 
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit' 
+
+#
+# Moving around:
+#
+
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+#
+# Workspaces:
+#
+
+    # Note: workspaces can have any name you want, not just numbers.
+
+    # Workspace Variables
+    set $ws1 "1:一"
+    set $ws2 "2:二"
+    set $ws3 "3:三"
+    set $ws4 "4:四"
+    set $ws5 "5:五"
+    set $ws6 "6:六"
+    set $ws7 "7:七"
+    set $ws8 "8:八"
+    set $ws9 "9:九"
+    set $ws0 "0:零"
+
+    # switch to workspace
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+7 workspace $ws7
+    bindsym $mod+8 workspace $ws8
+    bindsym $mod+9 workspace $ws9
+    bindsym $mod+0 workspace $ws0
+
+    # move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace $ws9
+    bindsym $mod+Shift+0 move container to workspace $ws0
+
+#
+# Layout stuff:
+#
+
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits respectively.
+    bindsym $mod+b splith; exec notify-send -t 4000 -i $HOME/.config/mako/logo/H.png "水平方向に分割 {|}"
+    bindsym $mod+v splitv; exec notify-send -t 4000 -i $HOME/.config/mako/logo/V.png "垂直方向に分割 {---}"
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+Shift+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+m floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+m focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+#
+# Scratchpad:
+#
+
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+Slash move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+Slash scratchpad show
+
+#
+# Resizing containers:
+#
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+    # left will shrink the containers width
+    bindsym $left resize shrink width 10px
+    # down will grow the containers height
+    bindsym $down resize grow height 10px
+    # up will shrink the containers height
+    bindsym $up resize shrink height 10px
+    # right will grow the containers width
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+#
+# Status Bar
+#
+
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    position bottom
+    gaps 20
+    font pango:JetBrains Mono Medium 12
+    strip_workspace_numbers yes
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while ~/.config/sway/candybar; do sleep 1; done
+    colors {
+        statusline #f3e500ff
+        background #00000088
+        focused_workspace #ff4a57ff #ff4a57ff #000000ff
+        inactive_workspace #00000000 #00000000 #ff4a57ff
+    }
+}
+
+include /etc/sway/config.d/*
+
+###################
+# Custom Settings #
+###################
+
+# swaylock
+bindsym $mod+Escape exec $slock
+
+# borders
+default_border pixel 2
+default_floating_border pixel 2
+
+# gaps to match alacritty
+gaps inner 20
+gaps horizontal 0
+gaps vertical 0
+
+# Alt+Tab Function
+bindsym alt+Tab focus next
+
+# Floating windows
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+
+for_window [window_role="task_dialog|bubble|page-info|Preferences|pop-up"] floating enable
+for_window [window_role="Open Files"] floating enable sticky
+for_window [window_role="Open File"] floating enable sticky
+for_window [window_role="Open"] floating enable sticky
+for_window [window_role="File Operation Progress"] floating enable sticky
+for_window [window_role="Save As"] floating enable
+
+for_window [class="qBittorrent" window_role="pop-up"] floating enable
+for_window [class="LibreOffice" window_role="Open File"] floating enable sticky
+for_window [class="$terminal -e alsamixer" window_role="Open"] floating enable
+#for_window [class="steam_app.*"] fullscreen enable
+#for_window [class="steam_app*"] inhibit_idle focus
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+#for_window [class="Nautilus"] floating enable
+
+# Sticky window
+for_window [instance="file_progress"]  sticky enable
+for_window [class="info|Mate-color-select|gcolor2|timesup|QtPass|GtkFileChooserDialog"] sticky enable
+
+# Focus window settings
+no_focus [window_role="pop-up"]
+focus_on_window_activation focus
+#for_window [class="(?i)"] focus
+
+# Sound controls
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Brightness Controls
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+
+# Screenshot
+bindsym Print exec grim -o eDP-1 -t png $HOME/pictures/grim/$(date +'D-shot-Fullscreen_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 4000 -i $HOME/.config/mako/logo/screenshot.png "「すべてのモニターの全画面表示>」" "$HOME/pictures/grim" 
+bindsym Shift+Print exec --no-startup-id slurp | grim -t png -g - $HOME/pictures/grim/$(date +'Area-D-shot_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 4000 -i $HOME/.config/mako/logo/screenshot.png "「選択した領域キャプチャ>」" "$HOME/pictures/grim"
+
+#
+# General
+#
+
+# Enable wayland backend for chrome, chromium or brave, for screen sharing
+# exec export chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-logging =stderr --v=1 > chromium-errors.log 2>&1
+
+# Evnironment variables for wayland support
+# exec export MOZ_ENABLE_WAYLAND=1 firefox
+exec export QT_QPA_PLATFORM=wayland-egl
+exec export CLUTTER_BACKEND=wayland
+exec export ECORE_EVAS_ENGINE=wayland-egl
+exec export ELM_ENGINE=wayland_egl
+exec export SDL_VIDEODRIVER=wayland
+exec export NO_AT_BRIDGE=1
+exec export `gnome-keyring-daemon --start --components=ssh`
+exec export QT_AUTO_SCREEN_SCALE_FACTOR=0
+exec export TDESKTOP_DISABLE_GTK_INTEGRATION=1
+exec export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pgrep -x sway).sock
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+# Authentication Agent
+exec_always /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Notification Daemon
+exec mako
+
+#
+# GTK Theming
+#
+
+set $gnome-schema org.gnome.desktop.interface
+set $gtk_theme 'Kripton'
+set $icon_theme 'Flatery-Yellow-Dark'
+set $cursor_theme 'Yaru-Blue'
+set $cursor_size 24
+
+seat seat0 xcursor_theme $cursor_theme $cursor_size
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme $gtk_theme
+    gsettings set org.gnome.desktop.wm.preferences theme $gtk_theme
+    gsettings set $gnome-schema icon-theme $icon_theme
+    gsettings set $gnome-schema cursor-theme $cursor_theme
+    gsettings set $gnome-schema cursor-size $cursor_size
+    gsettings set $gnome-schema gtk-application-prefer-dark-theme
+    gsettings set $gnome-schema font-name 'Noto Sans Medium 12'
+}
+
+#
+# Theme sway window borders and split selector
+#
+
+# Defining colors
+set {
+	$red          #ff4a57
+	$blue         #25e1ed
+	$cyan         #00ffff
+	$silver       #e4e4e4
+	$yellow      #f3e500
+	$transparent	#00000000
+}
+
+# Setting colors		      border		background	text		  indicator   child_border
+client.focused        	 	$yellow	  $yellow     $yellow	  $yellow     $yellow
+client.unfocused        	$red	    $red	      $red	    $red        $red
+client.focused_inactive 	$blue	    $blue		    $blue   	$blue		    $blue
+client.urgent	          	$blue	    $blue		    $blue   	$blue		    $blue
+client.placeholder        $blue	    $blue		    $blue   	$blue		    $blue
+
+# Shutdown, Reboot, Lock Screen, and Logout
+set $power_mode "力[power]"
+bindsym $mod+Shift+q      mode $power_mode
+mode $power_mode {
+    bindsym p         mode "default" ; exec systemctl poweroff
+    bindsym r         mode "default" ; exec systemctl reboot
+    bindsym l         mode "default" ; exec $slock
+    bindsym q         mode "default" ; exec swaynag -t warning -m 'Do you really want to exit sway' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym s         mode "default" ; exec systemctl suspend
+    bindsym h         mode "default" ; exec systemctl hibernate
+    bindsym Return    mode "default"
+    bindsym Escape    mode "default"
+}
+
+# Hide cursor while typing
+seat seat0 hide_cursor when-typing enable
+
+# Enable numlock
+input * xkb_numlock enable
+
+# Greeting message
+exec notify-send -t 10000 -i $HOME/.config/mako/logo/inicio.png "ようこそ, WELCOME $USER-さん !" "おかえりなさい! , OKAERINASAI $USER-さん !!!"

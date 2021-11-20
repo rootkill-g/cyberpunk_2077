@@ -1,0 +1,20 @@
+swaylock -f --screenshots --clock --indicator-idle-visible \
+            --indicator-radius 150 --indicator-thickness 20 \
+            --ignore-empty-password \
+            --font 'JetBrains Mono' \
+            --ring-color 000000 \
+            --ring-clear-color 000000 --ring-caps-lock-color 000000 \
+            --ring-ver-color 000000 --ring-wrong-color 000000 \
+            --line-color f3e500 \
+            --line-clear-color ff4a57 --line-caps-lock-color 00ffff \
+            --line-ver-color 00ff9f --line-wrong-color ed1e79 \
+            --inside-color 000000 \
+            --inside-clear-color 000000 --inside-caps-lock-color 000000 \
+            --inside-ver-color 000000 --inside-wrong-color 000000 \
+            --text-color f3e500 \
+            --text-clear-color ff4a57 --text-caps-lock-color 00ffff \
+            --text-ver-color 00ff9f --text-wrong-color ed1e79 \
+            --key-hl-color f3e500 --bs-hl-color ff4a57 \
+            --separator-color 00000000 \
+            --fade-in 0.25 --effect-scale 0.5 --effect-blur 7x3 \
+            --effect-scale 2 --effect-vignette 0.5:0.5

@@ -1,0 +1,33 @@
+###############################
+#                  _          #
+#  _ __ ___   __ _| | _____   #
+# | '_ ` _ \ / _` | |/ / _ \  #
+# | | | | | | (_| |   < (_) | #
+# |_| |_| |_|\__,_|_|\_\___/  #
+###############################
+
+
+#
+# Author : rootkill <rootkill.dedsec@gmail.com>
+# Github : rootkill-g
+#
+
+anchor=top-right
+layer=overlay
+font=Google Sans
+background-color=#000000
+text-color=#02d8f3
+width=420
+height=300
+padding=20
+margin=40
+icons=1
+icon-path=~/.local/share/icons/Flatery-Yellow-Dark/
+max-icon-size=100
+border-size=2
+border-radius=0
+border-color=#25e1ed
+default-timeout=5000
+
+[urgency=high]
+ignore-timeout=1

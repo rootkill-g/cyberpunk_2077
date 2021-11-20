@@ -1,0 +1,54 @@
+#inner-box{
+	margin: 10px;
+}
+
+#window {
+	border: 2px solid #f3e500;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+#text {
+	font-family: "JetBrains Mono";
+  font-weight: 500;
+	font-size: 18px;
+  padding: 0 0 0 20px;
+}
+
+#text:selected {
+	color: #000000;
+}
+
+#input {
+	color: #f3e500;
+  margin: 10px;
+	border: 2px solid #ed1e79;
+	border-radius: 0px;
+	background-color: rgba(0, 0, 0, 0.9);
+  font-family: "SF Mono";
+  font-weight: 500;
+	font-size: 18px;
+}
+
+#outer-box {
+	margin: 10px;
+}
+
+#scroll {
+  font-family: "JetBrains Mono";
+  font-weight: 500;
+	font-size: 18px;
+	color: #f3e500;
+}
+
+#scroll label {
+	margin: 0px;
+}
+
+#entry {
+	margin: 5px 0px;
+}
+
+#entry:selected {
+	background-color: #f3e500;
+  border-radius: 0px;
+}

@@ -1,0 +1,119 @@
+#
+# Settings
+#
+
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/cleaner
+set drawbox true
+set icons true
+
+#
+# Custom commands
+#
+
+# Broot
+cmd broot ${{
+  f=$(mktemp)
+  res="$(broot --outcmd $f && cat $f | sed 's/cd //')"
+  rm -f "$f"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+# Open a file with mimetype
+cmd open ${{
+  case $(file --mime-type "$f" -bL) in
+    application/pdf|application/epub+zip) $READER "$f" ;;
+    image/*) $IMAGE "$f" . ;;
+    text/*|application/json) $EDITOR "$f" ;;
+    video/*|application/octet-stream) $VIDEO "$f" ;;
+    *) xdg-open "$f" & ;;
+  esac
+}}
+
+# Mode change
+cmd modch ${{
+  printf "Mode : "
+  read value
+
+  for file in "$f"
+  do
+    chmod $value $file
+  done
+
+  lf -remote 'send reload'
+}}
+
+# Make directory
+cmd mkdir ${{
+  printf "Directory name : "
+  read value
+  mkdir $value
+}}
+
+# Make file
+cmd mkfile ${{
+  printf "File name : "
+  read value
+  touch $value
+  $EDITOR $value
+}}
+
+# Archive functions
+cmd zip %zip -r "$f" "$f"
+cmd tar %tar cf "$f.tar" "$f"
+cmd targz %tar czf "$f.tar.gz" "$f"
+cmd tarxz %tar cJf "$f.tar.xz" "$f"
+cmd tarbz2 %tar cjf "$f.tar.bz2" "$f"
+
+# Unarchive function
+cmd unarchive ${{
+    case "$f" in 
+    *.zip) unzip "$f" ;;
+    *.tar.gz) tar -xzf "$f" ;;
+    *.tar.xz) tar -xJf "$f" ;;
+    *.tar.bz2) tar -xjf "$f" ;;
+    *) echo "Unsupported Format!" ;;
+    esac
+}}
+
+#
+# Unset keys
+#
+
+map d
+map f
+map m
+
+#
+# Key mappings
+#
+
+map <enter> open
+map . set hidden!
+
+map c clear
+map f broot
+map p paste
+map r rename
+map u unselect
+map x cut
+map y copy
+
+map dd delete
+map mc modch
+map md mkdir
+map mf mkfile
+
+map ab tarbz2
+map ag targz
+map at tar
+map ax tarxz
+map az zip
+map au unarchive
+
+map R reload
