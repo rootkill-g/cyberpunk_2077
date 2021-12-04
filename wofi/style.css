@@ -3,7 +3,7 @@
 }
 
 #window {
-	border: 2px solid #f3e500;
+	border: 2px solid #fcee0a;
 	background-color: rgba(0, 0, 0, 0.9);
 }
 
@@ -19,7 +19,7 @@
 }
 
 #input {
-	color: #f3e500;
+	color: #fcee0a;
   margin: 10px;
 	border: 2px solid #ed1e79;
 	border-radius: 0px;
@@ -37,7 +37,7 @@
   font-family: "JetBrains Mono";
   font-weight: 500;
 	font-size: 18px;
-	color: #f3e500;
+	color: #fcee0a;
 }
 
 #scroll label {
@@ -49,6 +49,6 @@
 }
 
 #entry:selected {
-	background-color: #f3e500;
+	background-color: #fcee0a;
   border-radius: 0px;
 }

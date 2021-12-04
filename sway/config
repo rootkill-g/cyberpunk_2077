@@ -47,7 +47,7 @@ set $sidle ~/.config/sway/sidle
 output * bg $HOME/pictures/cyberpunk_2077/cyborg.jpg fill
 
 # Font
-font pango:Noto Sans Medium 12
+font pango:Google Sans Medium 12
 
 # Display output configuration
 output "eDP-1 'Unknown 0x38ED 0x00000000'" position 0 0 resolution 1920x1080
@@ -273,8 +273,9 @@ bar {
     # The default just shows the current date and time.
     status_command while ~/.config/sway/candybar; do sleep 1; done
     colors {
-        statusline #f3e500ff
-        background #00000088
+## #fcee0aff
+        statusline #ff4a57ff
+        background #000000aa
         focused_workspace #ff4a57ff #ff4a57ff #000000ff
         inactive_workspace #00000000 #00000000 #ff4a57ff
     }
@@ -377,9 +378,9 @@ exec mako
 #
 
 set $gnome-schema org.gnome.desktop.interface
-set $gtk_theme 'Kripton'
-set $icon_theme 'Flatery-Yellow-Dark'
-set $cursor_theme 'Yaru-Blue'
+set $gtk_theme 'WhiteSur-dark-red'
+set $icon_theme 'WhiteSur-red-dark'
+set $cursor_theme 'Adwaita'
 set $cursor_size 24
 
 seat seat0 xcursor_theme $cursor_theme $cursor_size
@@ -391,7 +392,7 @@ exec_always {
     gsettings set $gnome-schema cursor-theme $cursor_theme
     gsettings set $gnome-schema cursor-size $cursor_size
     gsettings set $gnome-schema gtk-application-prefer-dark-theme
-    gsettings set $gnome-schema font-name 'Noto Sans Medium 12'
+    gsettings set $gnome-schema font-name 'Google Sans Medium 12'
 }
 
 #
@@ -401,11 +402,11 @@ exec_always {
 # Defining colors
 set {
 	$red          #ff4a57
-	$blue         #25e1ed
+	$blue         #02d8f3
 	$cyan         #00ffff
 	$silver       #e4e4e4
-	$yellow      #f3e500
-	$transparent	#00000000
+	$yellow       #fcee0a
+  $transparent	#00000000
 }
 
 # Setting colors		      border		background	text		  indicator   child_border

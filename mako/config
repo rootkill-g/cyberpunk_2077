@@ -14,9 +14,9 @@
 
 anchor=top-right
 layer=overlay
-font=Google Sans
-background-color=#000000
-text-color=#02d8f3
+font=JetBrains Mono Medium
+background-color=#000000aa
+text-color=#ff4a57
 width=420
 height=300
 padding=20
@@ -26,7 +26,7 @@ icon-path=~/.local/share/icons/Flatery-Yellow-Dark/
 max-icon-size=100
 border-size=2
 border-radius=0
-border-color=#25e1ed
+border-color=#ff4a57
 default-timeout=5000
 
 [urgency=high]
