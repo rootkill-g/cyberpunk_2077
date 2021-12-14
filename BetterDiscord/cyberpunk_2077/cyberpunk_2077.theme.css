@@ -8,8 +8,8 @@
  * @updateUrl https://raw.githubusercontent.com/rootkill-g/cyberpunk_2077/master/BetterDiscord/cyberpunk_2077/cyberpunk_2077.theme.css
 **/
 
-@import url("https://github.com/rootkill-g/cyberpunk_2077/blob/main/BetterDiscord/cyberpunk_2077/Font/Stylesheet.css");
-@import url("https://github.com/rootkill-g/cyberpunk_2077/blob/main/BetterDiscord/cyberpunk_2077/cyberpunk_2077.css");
+@import url("https://rootkill-g.github.io/cyberpunk_2077/BetterDiscord/cyberpunk_2077/Font/Stylesheet.css");
+@import url("https://rootkill-g.github.io/cyberpunk_2077/BetterDiscord/cyberpunk_2077/cyberpunk_2077.css");
 
 :root {
     --color-high: rgb(51, 51, 51);
