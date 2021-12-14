@@ -14,12 +14,12 @@
 :root {
     --color-high: rgb(0, 0, 0);
     --color-lowest: rgb(255, 255, 255);
-    --color-low: rgb(184, 217, 209);
-    --color-mid: rgb(122, 153, 145);
-    --color-alert: rgb(229, 0, 77);
-    --color-alert-hover: rgb(236, 0, 80);
+    --color-low: rgb(2, 216, 243);
+    --color-mid: rgb(2, 216, 243);
+    --color-alert: rgb(255, 74, 87);
+    --color-alert-hover: rgb(255, 74, 87);
     --color-high-trans: rgba(0, 0, 0, 0.8);
-    --color-low-trans: rgba(184, 217, 209, 0.6);
-    --color-alert-trans: rgba(229, 0, 77, 0.7);
-    --font: BlenderProBold;
+    --color-low-trans: rgba(2, 216, 243, 0.6);
+    --color-alert-trans: rgba(255, 74, 87, 0.7);
+    --font: JetBrains Mono;
 }
