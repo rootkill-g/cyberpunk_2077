@@ -456,7 +456,7 @@
 }
 
 .tutorialContainer-1v44GL .svg-1X37T1 {
-  animation:logoglitch 2s linear 0.50s 1
+  animation:logoglitch 2s linear 0.50s 1;
   animation-duration: 4s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
