@@ -12,9 +12,9 @@
 @import url("https://rootkill-g.github.io/cyberpunk_2077/BetterDiscord/cyberpunk_2077/cyberpunk_2077.css");
 
 :root {
-    --color-high: rgb(0, 0, 0);
+    --color-high: rgba(0, 0, 0, 0.7);
     --color-lowest: rgb(255, 255, 255);
-    --color-low: rgb(2, 216, 243);
+    --color-low: rgb(252, 238, 10);
     --color-mid: rgb(2, 216, 243);
     --color-alert: rgb(255, 74, 87);
     --color-alert-hover: rgb(255, 74, 87);
