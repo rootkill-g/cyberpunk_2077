@@ -1,0 +1,7 @@
+@font-face {
+ font-family:JetBrains Mono;
+ src:url(JetBrainsMono-Bold.ttf) format("ttf"),
+ url(JetBrainsMono-Bold.ttf) format("ttf");
+ font-weight:700;
+ font-style:normal
+}
