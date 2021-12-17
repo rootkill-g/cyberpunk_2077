@@ -1,3 +1,5 @@
+# Ferris
+
 spacing = 2
 padding = 0
 hide_ascii = false
@@ -6,16 +8,22 @@ prefer_small_ascii = false
 separator = ""
 key_color = "Yellow"
 separator_color = "Red"
-palette = "Dark"
+
+[palette]
+type = "Dark"
+glyph = " 廓 "
+visible = true
 
 [bar]
-glyph = "ߋ"
+glyph = ""
 symbol_open = '['
 symbol_close = ']'
 visible = true
+hide_delimiters = false
 
 [box]
 title = " 🦀 Ferris "
+border = "plain"
 visible = true
 
 [box.inner_margin]
@@ -24,11 +32,12 @@ y = 1
 
 [custom_ascii]
 #color = "Green"
-path = "~/.config/macchina/ascii/rust.ascii"
+path = "~/.config/macchina/ascii/ferris.ascii"
 
 [randomize]
 key_color = false
 separator_color = false
+pool = "base"
 
 [keys]
 host = "Host"

@@ -18,7 +18,7 @@ current_shell = true
 #  if theme path is /home/foo/.config/macchina/themes/Sodium.toml
 #  theme should be uncommented and set to "Sodium"
 #
-# theme = ""
+theme = "Ferris"
 
 # Displays only the specified readouts.
 # Conflicts with: hide
@@ -42,4 +42,4 @@ current_shell = true
 #   - Memory
 #   - Battery
 # Example:
-#   show = ["Battery", "Memory", ...]
+   show = ["Host", "Machine", "Kernel", "Distribution", "WindowManager", "Packages", "Terminal", "Shell", "Uptime", "Processor", "ProcessorLoad", "Memory"]

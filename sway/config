@@ -275,7 +275,7 @@ bar {
     colors {
 ## #fcee0aff
         statusline #ff4a57ff
-        background #000000aa
+        background #000000dd
         focused_workspace #ff4a57ff #ff4a57ff #000000ff
         inactive_workspace #00000000 #00000000 #ff4a57ff
     }
