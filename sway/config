@@ -291,8 +291,8 @@ include /etc/sway/config.d/*
 bindsym $mod+Escape exec $slock
 
 # borders
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
 
 # gaps to match alacritty
 gaps inner 20
@@ -351,7 +351,7 @@ bindsym Shift+Print exec --no-startup-id slurp | grim -t png -g - $HOME/pictures
 #
 
 # Enable wayland backend for chrome, chromium or brave, for screen sharing
-# exec export chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-logging =stderr --v=1 > chromium-errors.log 2>&1
+exec export chrome --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-logging =stderr --v=1 > chromium-errors.log 2>&1
 
 # Evnironment variables for wayland support
 # exec export MOZ_ENABLE_WAYLAND=1 firefox

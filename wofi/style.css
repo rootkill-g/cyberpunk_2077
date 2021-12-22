@@ -3,14 +3,13 @@
 }
 
 #window {
-	border: 2px solid #fcee0a;
+	border: 1px solid #fcee0a;
 	background-color: rgba(0, 0, 0, 0.9);
 }
 
 #text {
 	font-family: "JetBrains Mono";
-  font-weight: 500;
-	font-size: 18px;
+	font-size: 16px;
   padding: 0 0 0 20px;
 }
 
@@ -21,12 +20,11 @@
 #input {
 	color: #00ff9f;
   margin: 10px;
-	border: 2px solid #ff4a57;
+	border: 1px solid #ff4a57;
 	border-radius: 0px;
 	background-color: rgba(0, 0, 0, 0.9);
-  font-family: "SF Mono";
-  font-weight: 500;
-	font-size: 18px;
+  font-family: "JetBrains Mono";
+	font-size: 16px;
 }
 
 #outer-box {
@@ -35,8 +33,7 @@
 
 #scroll {
   font-family: "JetBrains Mono";
-  font-weight: 500;
-	font-size: 18px;
+	font-size: 16px;
 	color: #fcee0a;
 }
 

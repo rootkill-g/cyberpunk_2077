@@ -11,11 +11,10 @@
 # Github : rootkill-g
 #
 
-width=500
-height=300
+width=1000
 insensitive=true
 mode=drun,run
 columns=1
 padding=10
-lines=5
+lines=10
 term=alacritty
