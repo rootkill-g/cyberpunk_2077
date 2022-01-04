@@ -1,5 +1,6 @@
+
 # Cyberpunk 2077
-<br />
+
   - [alacritty](https://github.com/alacritty/alacritty) : ``A cross platform, GPU-accelerated terminal emulator``
   - [BetterDiscord](https://github.com/betterdiscord) : ``A client modification for Discord. My personalized cyberpunk 2077 theme for Discord.``
   - [lf](https://github.com/gokcehan/lf) : ``A terminal file manager inspired by ranger written in Go. My cutom lfrc wth preview and cleaner functions.``
