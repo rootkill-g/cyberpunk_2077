@@ -128,7 +128,7 @@ font:
     family: JetBrainsMono Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Medium
+    style: Regular
 
   # Bold font face
   bold:
@@ -150,7 +150,7 @@ font:
     family: JetBrainsMono Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: Medium Italic
+    style: Regular Italic
 
   # Bold italic font face
   bold_italic:
@@ -876,7 +876,7 @@ colors:
     black:   '0x000000'
     red:     '0xff4a57'
     green:   '0x00ff9f'
-    yellow:  '0xfcee0a'
+    yellow:  '0xfefe33'
     blue:    '0x02d8f3'
     magenta: '0xed1e79'
     cyan:    '0x00ffff'
@@ -887,7 +887,7 @@ colors:
     black:   '0x505050'
     red:     '0xff4a57'
     green:   '0x00ff9f'
-    yellow:  '0xfcee0a'
+    yellow:  '0xfefe33'
     blue:    '0x02d8f3'
     magenta: '0xed1e79'
     cyan:    '0x00ffff'

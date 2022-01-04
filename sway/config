@@ -47,7 +47,7 @@ set $sidle ~/.config/sway/sidle
 output * bg $HOME/pictures/cyberpunk_2077/cyborg.jpg fill
 
 # Font
-font pango:Google Sans Medium 12
+font pango:SF Pro Text Regular 12
 
 # Display output configuration
 output "eDP-1 'Unknown 0x38ED 0x00000000'" position 0 0 resolution 1920x1080
@@ -267,13 +267,13 @@ mode "resize" {
 bar {
     position bottom
     gaps 20
-    font pango:JetBrains Mono Medium 12
+    font pango:JetBrains Mono Regular 12
     strip_workspace_numbers yes
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while ~/.config/sway/candybar; do sleep 1; done
     colors {
-## #fcee0aff
+## #fefe33ff
         statusline #ff4a57ff
         background #000000dd
         focused_workspace #ff4a57ff #ff4a57ff #000000ff
@@ -343,15 +343,15 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
 # Screenshot
-bindsym Print exec grim -o eDP-1 -t png $HOME/pictures/grim/$(date +'D-shot-Fullscreen_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 4000 -i $HOME/.config/mako/logo/screenshot.png "「すべてのモニターの全画面表示>」" "$HOME/pictures/grim" 
-bindsym Shift+Print exec --no-startup-id slurp | grim -t png -g - $HOME/pictures/grim/$(date +'Area-D-shot_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 4000 -i $HOME/.config/mako/logo/screenshot.png "「選択した領域キャプチャ>」" "$HOME/pictures/grim"
+bindsym --locked Print exec grim -o eDP-1 -t png $HOME/pictures/grim/$(date +'D-shot-Fullscreen_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 4000 -i $HOME/.config/mako/logo/screenshot.png "「すべてのモニターの全画面表示>」" "$HOME/pictures/grim" 
+bindsym --locked Shift+Print exec --no-startup-id slurp | grim -t png -g - $HOME/pictures/grim/$(date +'Area-D-shot_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 4000 -i $HOME/.config/mako/logo/screenshot.png "「選択した領域キャプチャ>」" "$HOME/pictures/grim"
 
 #
 # General
 #
 
 # Enable wayland backend for chrome, chromium or brave, for screen sharing
-exec export chrome --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-logging =stderr --v=1 > chromium-errors.log 2>&1
+# exec export chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-logging =stderr --v=1 > chromium-errors.log 2>&1
 
 # Evnironment variables for wayland support
 # exec export MOZ_ENABLE_WAYLAND=1 firefox
@@ -378,9 +378,9 @@ exec mako
 #
 
 set $gnome-schema org.gnome.desktop.interface
-set $gtk_theme 'WhiteSur-dark-red'
-set $icon_theme 'WhiteSur-red-dark'
-set $cursor_theme 'Adwaita'
+set $gtk_theme 'WhiteSur-light-red'
+set $icon_theme 'WhiteSur-red'
+set $cursor_theme 'McMojave-cursors'
 set $cursor_size 24
 
 seat seat0 xcursor_theme $cursor_theme $cursor_size
@@ -392,7 +392,7 @@ exec_always {
     gsettings set $gnome-schema cursor-theme $cursor_theme
     gsettings set $gnome-schema cursor-size $cursor_size
     gsettings set $gnome-schema gtk-application-prefer-dark-theme
-    gsettings set $gnome-schema font-name 'Google Sans Medium 12'
+    gsettings set $gnome-schema font-name 'SF Pro Text Regular 12'
 }
 
 #
@@ -405,7 +405,7 @@ set {
 	$blue         #02d8f3
 	$cyan         #00ffff
 	$silver       #e4e4e4
-	$yellow       #fcee0a
+	$yellow       #fefe33
   $transparent	#00000000
 }
 

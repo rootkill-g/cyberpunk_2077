@@ -3,7 +3,7 @@
 }
 
 #window {
-	border: 1px solid #fcee0a;
+	border: 1px solid #fefe33;
 	background-color: rgba(0, 0, 0, 0.9);
 }
 
@@ -34,7 +34,7 @@
 #scroll {
   font-family: "JetBrains Mono";
 	font-size: 16px;
-	color: #fcee0a;
+	color: #fefe33;
 }
 
 #scroll label {
@@ -46,6 +46,6 @@
 }
 
 #entry:selected {
-	background-color: #fcee0a;
+	background-color: #fefe33;
   border-radius: 0px;
 }

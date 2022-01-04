@@ -74,6 +74,7 @@ cmd tarbz2 %tar cjf "$f.tar.bz2" "$f"
 cmd unarchive ${{
     case "$f" in 
     *.zip) unzip "$f" ;;
+    *.tgz) tar -zxvf "$f" ;;
     *.tar.gz) tar -xzf "$f" ;;
     *.tar.xz) tar -xJf "$f" ;;
     *.tar.bz2) tar -xjf "$f" ;;
