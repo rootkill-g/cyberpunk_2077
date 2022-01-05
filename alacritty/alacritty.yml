@@ -878,7 +878,7 @@ colors:
     green:   '0x00ff9f'
     yellow:  '0xfefe33'
     blue:    '0x02d8f3'
-    magenta: '0xed1e79'
+    magenta: '0xf91880'
     cyan:    '0x00ffff'
     white:   '0xe0e0e0'
 
@@ -889,7 +889,7 @@ colors:
     green:   '0x00ff9f'
     yellow:  '0xfefe33'
     blue:    '0x02d8f3'
-    magenta: '0xed1e79'
+    magenta: '0xf91880'
     cyan:    '0x00ffff'
     white:   '0xffffff'
 
