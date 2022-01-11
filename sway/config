@@ -36,7 +36,7 @@ set $menu wofi --allow-images --hide-scroll
 
 # Defined Variables
 set $fm lf
-set $wb firefox
+set $wb google-chrome-stable
 set $slock ~/.config/sway/slock
 set $sidle ~/.config/sway/sidle
 #
@@ -109,7 +109,7 @@ input type:touchpad {
     bindsym $mod+i exec $wb
 
     # Start web browser incognito mode
-    bindsym Shift+Ctrl+p exec firefox --private-window
+    bindsym Shift+Ctrl+p exec google-chrome-stable --incognito
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
