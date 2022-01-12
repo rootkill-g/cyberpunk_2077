@@ -121,7 +121,7 @@ input type:touchpad {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+r reload ; exec notify-send -t 7000 -i $HOME/.config/mako/cute/refresh.png "リフレーミング" "リフレーム！ ねえ$ USERさん " 
+    bindsym $mod+Shift+r reload ; exec notify-send -t 7000 -i $HOME/.config/mako/cute/refresh.png "リフレーミング" "リフレーム！ ねえ $USER さん "
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec $swaynag
@@ -201,8 +201,8 @@ input type:touchpad {
 
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits respectively.
-    bindsym $mod+b splith; exec notify-send -t 1000 -i $HOME/.config/mako/cute/H.png "水平方向に分割 {|}"
-    bindsym $mod+v splitv; exec notify-send -t 1000 -i $HOME/.config/mako/cute/V.png "垂直方向に分割 {---}"
+    bindsym $mod+b splith; exec notify-send -t 4000 -i $HOME/.config/mako/cute/H.png "水平方向に分割 {|}"
+    bindsym $mod+v splitv; exec notify-send -t 4000 -i $HOME/.config/mako/cute/V.png "垂直方向に分割 {---}"
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -273,7 +273,7 @@ bar {
     strip_workspace_numbers yes
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while ~/.config/sway/candybar; do sleep 0.01; done
+    status_command while ~/.config/sway/candybar; do sleep 1; done
     colors {
 ## #fefe33ff
         statusline #ff4a57ff
@@ -345,8 +345,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
 # Screenshot
-bindsym --locked Print exec grim -o eDP-1 -t png $HOME/pictures/grim/$(date +'D-shot-Fullscreen_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 1000 -i $HOME/.config/mako/cute/screenshot.png "フルスクリーンショット " "$HOME/pictures/grim" 
-bindsym --locked Shift+Print exec --no-startup-id slurp | grim -t png -g - $HOME/pictures/grim/$(date +'Area-D-shot_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 1000 -i $HOME/.config/mako/cute/screenshot.png "エリアキャプチャ" "$HOME/pictures/grim"
+bindsym --locked Print exec grim -o eDP-1 -t png $HOME/pictures/grim/$(date +'D-shot-Fullscreen_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 4000 -i $HOME/.config/mako/cute/screenshot.png "フルスクリーンショット " "$HOME/pictures/grim" 
+bindsym --locked Shift+Print exec --no-startup-id slurp | grim -t png -g - $HOME/pictures/grim/$(date +'Area-D-shot_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 4000 -i $HOME/.config/mako/cute/screenshot.png "エリアキャプチャ" "$HOME/pictures/grim"
 
 #
 # General

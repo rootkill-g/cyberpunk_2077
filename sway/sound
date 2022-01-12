@@ -10,9 +10,12 @@
 level=$(amixer sget Master | awk -F"[][]" '/Left: Play.+/ { print $0 }' | awk -F"[][]" '{ print $2 }')
 temp=$(amixer sget Master | awk -F"[][]" '/Left: Play.+/ { print $0 }' | awk -F" " '{ print $6 }')
 if [ "$temp" != "[on]" ] || [ "$level" == "0%" ] ; then
-  notify-send -t 1000 -i $HOME/.config/mako/cute/sound.png "🔇 $level"
+  makoctl dismiss
+  notify-send -t 4000 -i $HOME/.config/mako/cute/sound_2.png "で音楽を聴く 🔇 $level"
 elif [ ${level::-1} -le 35 ] ; then
-  notify-send -t 1000 -i $HOME/.config/mako/cute/sound.png "🔉 $level"
+  makoctl dismiss
+  notify-send -t 4000 -i $HOME/.config/mako/cute/sound_2.png "で音楽を聴く 🔉 $level"
 else
-  notify-send -t 1000 -i $HOME/.config/mako/cute/sound.png "🔊 $level"
+  makoctl dismiss
+  notify-send -t 4000 -i $HOME/.config/mako/cute/sound_2.png "で音楽を聴く 🔊 $level"
 fi
