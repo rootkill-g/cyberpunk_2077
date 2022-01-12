@@ -36,9 +36,11 @@ set $menu wofi --allow-images --hide-scroll
 
 # Defined Variables
 set $fm lf
-set $wb google-chrome-stable
+set $wb firefox
 set $slock ~/.config/sway/slock
 set $sidle ~/.config/sway/sidle
+set $sound ~/.config/sway/sound
+set $swaynag ~/.config/sway/swaynag
 #
 # Output configuration
 #
@@ -109,7 +111,7 @@ input type:touchpad {
     bindsym $mod+i exec $wb
 
     # Start web browser incognito mode
-    bindsym Shift+Ctrl+p exec google-chrome-stable --incognito
+    bindsym Shift+Ctrl+p exec $wb --private-window
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -119,10 +121,10 @@ input type:touchpad {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+r reload ; exec notify-send -t 7000 -i $HOME/.config/mako/logo/anime.png "華やかさに対して揺れる" "揺れリロード！, また ねええ   $USER-さん !!!" 
+    bindsym $mod+Shift+r reload ; exec notify-send -t 7000 -i $HOME/.config/mako/cute/refresh.png "リフレーミング" "リフレーム！ ねえ$ USERさん " 
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit' 
+    bindsym $mod+Shift+e exec $swaynag
 
 #
 # Moving around:
@@ -199,8 +201,8 @@ input type:touchpad {
 
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits respectively.
-    bindsym $mod+b splith; exec notify-send -t 4000 -i $HOME/.config/mako/logo/H.png "水平方向に分割 {|}"
-    bindsym $mod+v splitv; exec notify-send -t 4000 -i $HOME/.config/mako/logo/V.png "垂直方向に分割 {---}"
+    bindsym $mod+b splith; exec notify-send -t 1000 -i $HOME/.config/mako/cute/H.png "水平方向に分割 {|}"
+    bindsym $mod+v splitv; exec notify-send -t 1000 -i $HOME/.config/mako/cute/V.png "垂直方向に分割 {---}"
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -271,13 +273,13 @@ bar {
     strip_workspace_numbers yes
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while ~/.config/sway/candybar; do sleep 1; done
+    status_command while ~/.config/sway/candybar; do sleep 0.01; done
     colors {
 ## #fefe33ff
         statusline #ff4a57ff
         background #000000dd
         focused_workspace #ff4a57ff #ff4a57ff #000000ff
-        inactive_workspace #00000000 #00000000 #ff4a57ff
+        inactive_workspace #000000dd #000000dd #ff4a57ff
     }
 }
 
@@ -334,17 +336,17 @@ focus_on_window_activation focus
 #for_window [class="(?i)"] focus
 
 # Sound controls
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% ; exec $sound
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% ; exec $sound
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle ; exec $sound
 
 # Brightness Controls
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
 # Screenshot
-bindsym --locked Print exec grim -o eDP-1 -t png $HOME/pictures/grim/$(date +'D-shot-Fullscreen_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 4000 -i $HOME/.config/mako/logo/screenshot.png "「すべてのモニターの全画面表示>」" "$HOME/pictures/grim" 
-bindsym --locked Shift+Print exec --no-startup-id slurp | grim -t png -g - $HOME/pictures/grim/$(date +'Area-D-shot_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 4000 -i $HOME/.config/mako/logo/screenshot.png "「選択した領域キャプチャ>」" "$HOME/pictures/grim"
+bindsym --locked Print exec grim -o eDP-1 -t png $HOME/pictures/grim/$(date +'D-shot-Fullscreen_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 1000 -i $HOME/.config/mako/cute/screenshot.png "フルスクリーンショット " "$HOME/pictures/grim" 
+bindsym --locked Shift+Print exec --no-startup-id slurp | grim -t png -g - $HOME/pictures/grim/$(date +'Area-D-shot_%Y-%m-%d-%H%M%S.png'); exec notify-send -t 1000 -i $HOME/.config/mako/cute/screenshot.png "エリアキャプチャ" "$HOME/pictures/grim"
 
 #
 # General
@@ -417,13 +419,13 @@ client.urgent	          	$blue	    $blue		    $blue   	$blue		    $blue
 client.placeholder        $blue	    $blue		    $blue   	$blue		    $blue
 
 # Shutdown, Reboot, Lock Screen, and Logout
-set $power_mode "力[power]"
+set $power_mode "力[p: poweroff | r: reboot | l: lock | q: logout | s: suspend | h: hibernate | Esc/Return: Cancel]"
 bindsym $mod+Shift+q      mode $power_mode
 mode $power_mode {
     bindsym p         mode "default" ; exec systemctl poweroff
     bindsym r         mode "default" ; exec systemctl reboot
     bindsym l         mode "default" ; exec $slock
-    bindsym q         mode "default" ; exec swaynag -t warning -m 'Do you really want to exit sway' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym q         mode "default" ; exec $swaynag
     bindsym s         mode "default" ; exec systemctl suspend
     bindsym h         mode "default" ; exec systemctl hibernate
     bindsym Return    mode "default"
@@ -437,4 +439,4 @@ seat seat0 hide_cursor when-typing enable
 input * xkb_numlock enable
 
 # Greeting message
-exec notify-send -t 10000 -i $HOME/.config/mako/logo/inicio.png "ようこそ, WELCOME $USER-さん !" "おかえりなさい! , OKAERINASAI $USER-さん !!!"
+exec notify-send -t 10000 -i $HOME/.config/mako/cute/welcome.png "ようこそ $USER-さん!" "おかえりなさい! $USER-さん!!!"
