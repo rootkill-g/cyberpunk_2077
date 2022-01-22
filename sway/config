@@ -46,7 +46,7 @@ set $swaynag ~/.config/sway/swaynag
 #
 
 # Desktop wallpaper
-output * bg $HOME/pictures/cyberpunk_2077/cyborg.jpg fill
+output * bg $HOME/pictures/cyberpunk_2077/scenery.jpg fill
 
 # Font
 font pango:SF Pro Text Regular 12
@@ -273,7 +273,7 @@ bar {
     strip_workspace_numbers yes
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while ~/.config/sway/candybar; do sleep 1; done
+    status_command while ~/.config/sway/candybar; do sleep 0.1; done
     colors {
 ## #fefe33ff
         statusline #ff4a57ff
