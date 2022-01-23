@@ -16,8 +16,8 @@
 #
 
 case $- in 
-	*i*) ;;
-	*) return;;
+  *i*) ;;
+  *) return;;
 esac
 
 HISTCONTROL=ignoreboth
@@ -32,15 +32,15 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
+  . ~/.bash_aliases
 fi
 
 if ! shopt -oq posix; then
-	if [ -f /usr/share/bash-completion/bash_completion ]; then
-		. /usr/share/bash-completion/bash_completion
-	elif [ -f /etc/bash_completion ]; then
-		. /etc/bash_completion
-	fi
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
 fi
 
 #
@@ -106,14 +106,14 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 #
 
 git_branch() {
-	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'`
-	if [ ! "${BRANCH}" == "" ] ; then
-		STAT=`git_dirty`
+  BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'`
+  if [ ! "${BRANCH}" == "" ] ; then
+    STAT=`git_dirty`
     ICON=''
-		echo "$ICON ${BRANCH}${STAT}"
-	else
-		echo ""
-	fi
+    echo "$ICON ${BRANCH}${STAT}"
+  else
+    echo ""
+  fi
 }
 
 git_dirty() {
