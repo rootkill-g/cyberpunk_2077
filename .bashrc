@@ -16,8 +16,8 @@
 #
 
 case $- in 
-  *i*) ;;
-  *) return;;
+	*i*) ;;
+	*) return;;
 esac
 
 HISTCONTROL=ignoreboth
@@ -32,15 +32,15 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+	. ~/.bash_aliases
 fi
 
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+	if [ -f /usr/share/bash-completion/bash_completion ]; then
+		. /usr/share/bash-completion/bash_completion
+	elif [ -f /etc/bash_completion ]; then
+		. /etc/bash_completion
+	fi
 fi
 
 #
@@ -78,7 +78,7 @@ On_White='\e[47m'       # White
 
 NC="\e[m"               # Color Reset
 
-export PS1="\[\e[1;34m\]\u\[\e[1;31m\] \`emoji\` \[\e[1;35m\]|→ \[\e[1;34m\]\h\[\e[1;31m\] 🦀 \[\e[1;33m\][\[\e[1;32m\]\w\[\e[1;33m\]]\[\e[1;31m\] \`git_branch\`\n\[\e[1;34m\]\$ \[\e[m\]"
+export PS1="\[\e[1;31m\]┌─\[\e[1;33m\][\[\e[1;34m\]\u\[\e[1;33m\]]\[\e[1;31m\]-\[\e[1;33m\][\`emoji\`]\[\e[1;31m\]-\[\e[1;33m\][\[\e[1;34m\]\h\[\e[1;33m\]]\[\e[1;31m\]-\[\e[1;33m\][🦀]\[\e[1;31m\]-\[\e[1;33m\][\[\e[1;32m\]\w\[\e[1;33m\]]\[\e[1;31m\] \`git_branch\`\n\[\e[1;31m\]└─\[\e[1;33m\][\[\e[1;34m\]\$\[\e[1;33m\]] \[\e[m\]"
 
 #
 # Aliases
@@ -106,48 +106,48 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 #
 
 git_branch() {
-  BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'`
-  if [ ! "${BRANCH}" == "" ] ; then
-    STAT=`git_dirty`
+	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'`
+	if [ ! "${BRANCH}" == "" ] ; then
+		STAT=`git_dirty`
     ICON=''
-    echo "$ICON ${BRANCH}${STAT}"
-  else
-    echo ""
-  fi
+		echo "$ICON ${BRANCH}${STAT}"
+	else
+		echo ""
+	fi
 }
 
 git_dirty() {
-  status=`git status 2>&1 | tee`
-  dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
-  untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
-  ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
-  newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
-  renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
-  deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
-  bits=''
-  if [ "${renamed}" == "0" ] ; then
-    bits=">${bits}"
-  fi
-  if [ "${ahead}" == "0" ] ; then
-    bits="*${bits}"
-  fi
-  if [ "${newfile}" == "0" ] ; then
-    bits="+${bits}"
-  fi
-  if [ "${untracked}" == "0" ] ; then
-    bits="?${bits}"
-  fi
-  if [ "${deleted}" == "0" ] ; then
-    bits="x${bits}"
-  fi
-  if [ "${dirty}" == "0" ] ; then
-    bits="!${bits}"
-  fi
-  if [ ! "${bits}" == "" ] ; then
-    echo " ${bits}"
-  else
-    echo ""
-  fi
+	status=`git status 2>&1 | tee`
+	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+	untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+	ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
+	newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+	renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
+	deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+	bits=''
+	if [ "${renamed}" == "0" ] ; then
+		bits=">${bits}"
+	fi
+	if [ "${ahead}" == "0" ] ; then
+		bits="*${bits}"
+	fi
+	if [ "${newfile}" == "0" ] ; then
+		bits="+${bits}"
+	fi
+	if [ "${untracked}" == "0" ] ; then
+		bits="?${bits}"
+	fi
+	if [ "${deleted}" == "0" ] ; then
+		bits="x${bits}"
+	fi
+	if [ "${dirty}" == "0" ] ; then
+		bits="!${bits}"
+	fi
+	if [ ! "${bits}" == "" ] ; then
+		echo " ${bits}"
+	else
+		echo ""
+	fi
 }
 
 #
@@ -194,8 +194,3 @@ emoji() {
 
 macchina
 . "$HOME/.cargo/env"
-
-
-# BEGIN_KITTY_SHELL_INTEGRATION
-if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
-# END_KITTY_SHELL_INTEGRATION
