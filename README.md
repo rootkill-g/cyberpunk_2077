@@ -4,7 +4,6 @@
   - [alacritty](https://github.com/alacritty/alacritty) : ``A cross platform, GPU-accelerated terminal emulator``
   - [BetterDiscord](https://github.com/betterdiscord) : ``A client modification for Discord. My personalized cyberpunk 2077 theme for Discord.``
   - [lf](https://github.com/gokcehan/lf) : ``A terminal file manager inspired by ranger written in Go. My cutom lfrc wth preview and cleaner functions.``
-  - [lunarvim](https://www.lunarvim.org/#opinionated) : [ChristianChiarulli](https://github.com/ChristianChiarulli)'s ``opinionated, extensible, and fast IDE layer for [neovim](https://neovim.io). My personalized cyberpunk 2077 theme (works for neovim too!).``
   - [macchina](https://github.com/Macchina-CLI/macchina) : ``Fast, minimal and customizable system information frontend. My custom theme "Ferris".``
   - [mako](https://github.com/emersion/mako) : ``Lightweight notification daemon for wayland``
   - [mpv](https://mpv.io) : ``A free, open source, and cross-platform media played``
